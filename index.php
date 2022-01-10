@@ -1,7 +1,7 @@
 <?php header('Content-Type: text/html; charset=windows-1251'); ?>
 
 <body>
-<h1> Газин Д. Р. </h1>
+<h1> Катасонов С. А. </h1>
 <p> Дата и время:
 
 <?php

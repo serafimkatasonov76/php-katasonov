@@ -1,7 +1,7 @@
 <?php header('Content-Type: text/html; charset=windows-1251'); ?>
 
 <body>
-<h1> Газин Д. Р. </h1>
+<h1> Катасонов С. А. </h1>
 <p> Дата и время:
 
 <?php
@@ -13,7 +13,7 @@
 <br><br>
 
 <a href='./bd_user/'>Общее задание (Пользователи)</a><br>
-<a href='./bd_fridge/'>Вариант №6 (Холодильники)</a><br>
+<a href='./bd_fridge/'>Вариант №12 (Планеты)</a><br>
 
 <br><a href='..'>Назад</a><br>
 
