@@ -13,7 +13,7 @@
  $name=$st["name"];
  $info = $st['info'];
  }
-print "<form action='save_edit_service.php' metod='get'>";
+print "<form action='save_edit_alien.php' metod='get'>";
 print "Название: <input name='name' size='20' type='text'
 value='".$name."'>";
 print "<br>Описание: <textarea name='info' rows='4' cols='40'>".$info."</textarea>";
