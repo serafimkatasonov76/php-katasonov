@@ -21,8 +21,8 @@
   $sheet -> setTitle("Зарегистрированное население");
 
   $sheet -> SetCellValue("A1", "Зарегистрированное население");
-  $sheet -> mergeCells("A1:I1");
-  $sheet -> getStyle("A1:I1") -> getAlignment() -> setHorizontal("center");
+  $sheet -> mergeCells("A1:H1");
+  $sheet -> getStyle("A1:H1") -> getAlignment() -> setHorizontal("center");
 
   $sheet -> getColumnDimension("A") -> setWidth(5);
   $sheet -> getColumnDimension("B") -> setWidth(20);
@@ -35,7 +35,7 @@
 
   $sheet -> SetCellValue("A2", "№");
   $sheet -> SetCellValue("B2", "Планета");
-  $sheet -> SetCellValue("C2", "Создание");
+  $sheet -> SetCellValue("C2", "Созвездие");
   $sheet -> SetCellValue("D2", "Расстояние, млн. км.");
   $sheet -> SetCellValue("E2", "Тип");
   $sheet -> SetCellValue("F2", "Диаметр, км.");
