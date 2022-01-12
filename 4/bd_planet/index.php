@@ -47,7 +47,7 @@ while ($row=mysqli_fetch_array($result)){// для каждой строки из запроса
  echo "<tr>";
  echo "<td>" . $row["id"] . "</td>";
  echo "<td>" . $row["name"] . "</td>";
- echo "<td style='width:20px'>" . $row["info"] . "</td>";
+ echo "<td style='max-width:30px'>" . $row["info"] . "</td>";
  echo "<td><a href='edit_alien.php?id=" . $row["id"]
 . "'>Редактировать</a></td>"; // запуск скрипта для редактирования
  echo "<td><a href='delete_alien.php?id=" . $row["id"]
