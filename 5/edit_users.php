@@ -16,6 +16,8 @@
   echo "Имя пользователя: <input name='username' size='20' type='text' value='".$username."'>";
   echo "<br>Пароль: <input name='password' size='20' type='password' value=''>";
   echo "<br>Права доступа: <input name='rule' size='10' type='text' value='".$rule."'>";
+  echo "<br><input type='hidden' name='old_username' value='".$username."'>";
+  
   echo "<input type='submit' name='' value='Сохранить'></form>";
   echo "<p><a href='.'> Вернуться </a></body></html>";
  }

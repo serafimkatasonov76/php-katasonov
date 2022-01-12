@@ -9,7 +9,7 @@ if($_SESSION["rule"] != 2) header("Location: .");
 <?php
  $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","b844245c408b92","a1683317", "heroku_1f01e7efa26acd8") or die ("Невозможно подключиться к серверу");
  mysqli_query($conn, 'SET NAMES cp1251');
- $zapros="UPDATE users SET username='".$_GET['username']."', password='".md5($_GET['password'])."', rule='".$_GET['rule']."' WHERE username='".$_GET['username']."'";
+ $zapros="UPDATE users SET username='".$_GET['username']."', password='".md5($_GET['password'])."', rule='".$_GET['rule']."' WHERE username='".$_GET['old_username']."'";
  mysqli_query($conn, $zapros);
  if (mysqli_affected_rows($conn) > 0) {
   echo "Все сохранено. <a href='.'> Вернуться на главную</a>";
