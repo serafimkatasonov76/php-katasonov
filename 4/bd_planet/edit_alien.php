@@ -16,7 +16,7 @@
 print "<form action='save_edit_service.php' metod='get'>";
 print "Название: <input name='name' size='20' type='text'
 value='".$name."'>";
-print "<br>Описание: "<textarea name='info' rows='4' cols='40'>".$_GET['info']."</textarea>;
+print "<br>Описание: <textarea name='info' rows='4' cols='40'>".$_GET['info']."</textarea>";
 print "<input type='hidden' name='id' value='".$_GET['id']."'>";
 print "<input type='submit' name='' value='Сохранить'>";
 print "</form>";

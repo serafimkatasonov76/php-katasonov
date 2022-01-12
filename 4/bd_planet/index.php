@@ -36,7 +36,7 @@ print("<P>Всего записей: $num_rows </p>");
 <a href="new_planet.php"> Добавить запись </a><br><br>
 
 <h2>Виды инопланетян:</h2>
-<table border='1' style='table-layout:fixed; max-width:200px'>
+<table border='1''>
 <tr>
  <th> id </th>
  <th> Название </th> <th> Описание </th>
