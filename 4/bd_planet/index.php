@@ -34,6 +34,32 @@ $num_rows = mysqli_num_rows($result); // число записей в таблице БД
 print("<P>Всего записей: $num_rows </p>");
 ?>
 <a href="new_planet.php"> Добавить запись </a><br><br>
+
+<h2>Виды инопланетян:</h2>
+<table border="1">
+<tr>
+ <th> id </th>
+ <th> Название </th> <th> Описание </th>
+ <th> Редактировать </th> <th> Уничтожить </th> </tr>
+<?php
+$result=mysqli_query($conn, "SELECT * FROM alien"); // запрос на выборку сведений о пользователях
+while ($row=mysqli_fetch_array($result)){// для каждой строки из запроса
+ echo "<tr>";
+ echo "<td>" . $row["id"] . "</td>";
+ echo "<td>" . $row["name"] . "</td>";
+ echo "<td>" . $row["info"] . "</td>";
+ echo "<td><a href='edit_alien.php?id=" . $row["id"]
+. "'>Редактировать</a></td>"; // запуск скрипта для редактирования
+ echo "<td><a href='delete_alien.php?id=" . $row["id"]
+. "'>Удалить</a></td>"; // запуск скрипта для удаления записи
+ echo "</tr>";
+}
+echo "</table>";
+$num_rows = mysqli_num_rows($result); // число записей в таблице БД
+print("<P>Всего записей: $num_rows </p>");
+?>
+<a href="new_alien.php"> Добавить запись </a><br><br>
+
 <br><a href='..'>Назад</a><br>
 
 </body> </html>
