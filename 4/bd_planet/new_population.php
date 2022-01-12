@@ -9,7 +9,7 @@
 ?>
 <H2>Добавление новой записи:</H2>
 <form action="save_new_population.php" metod="get">
-<br>id Сервисного центра: <select name="id_planet">
+<br>id Планеты: <select name="id_planet">
 <?php
   $result=mysqli_query($conn, "SELECT * FROM planet");
   echo "<option value='' selected disabled hidden>...</option>";
