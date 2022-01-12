@@ -1,5 +1,10 @@
 <?php header('Content-Type: text/html; charset=windows-1251'); ?>
 
+<?php
+session_start();
+if(!$_SESSION["rule"]) header("Location: .");
+?>
+
 <html><body>
 <?php
  $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","b844245c408b92","a1683317", "heroku_1f01e7efa26acd8") or die ("Невозможно подключиться к серверу");
