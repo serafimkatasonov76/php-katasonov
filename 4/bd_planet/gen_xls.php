@@ -63,14 +63,13 @@
     }
 
     $sheet -> SetCellValue("A".($i+2), $i);
-    $sheet -> SetCellValue("B".($i+2), $name_fridge);
-    $sheet -> SetCellValue("C".($i+2), $model);
-    $sheet -> SetCellValue("D".($i+2), $time);
-    $sheet -> SetCellValue("E".($i+2), $address);
-    $sheet -> SetCellValue("F".($i+2), date("d.m.Y", strtotime($date_in)));
-    $sheet -> SetCellValue("G".($i+2), date("d.m.Y", strtotime($date_out)));
-    $sheet -> SetCellValue("H".($i+2), $fio);
-    $sheet -> SetCellValue("I".($i+2), $price);
+    $sheet -> SetCellValue("B".($i+2), $name_planet);
+    $sheet -> SetCellValue("C".($i+2), $galaxy);
+    $sheet -> SetCellValue("D".($i+2), $distance);
+    $sheet -> SetCellValue("E".($i+2), $type);
+    $sheet -> SetCellValue("F".($i+2), $diam);
+    $sheet -> SetCellValue("G".($i+2), $name_alien);
+    $sheet -> SetCellValue("H".($i+2), $count);
   }
 
   $writer = new Xlsx($spreadsheet);
