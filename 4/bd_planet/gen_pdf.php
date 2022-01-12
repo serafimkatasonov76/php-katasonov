@@ -11,7 +11,7 @@
   $pdf -> AddFont("Arial", "", "arial.php");
   $pdf -> SetFont("Arial", "", "18");
 
-  $pdf -> Cell(200, 10, "Зарегистрированное население", 1, 1, "C");
+  $pdf -> Cell(175, 10, "Зарегистрированное население", 1, 1, "C");
  
   $pdf -> AddFont("Arial", "", "arial.php");
   $pdf -> SetFont("Arial", "", "6");
@@ -19,11 +19,11 @@
   $pdf -> Cell(5, 5, "№", 1, 0, "C");
   $pdf -> Cell(25, 5, "Планета", 1, 0, "C");
   $pdf -> Cell(25, 5, "Созвездие", 1, 0, "C");
-  $pdf -> Cell(30, 5, "Расстояние, млн. км.", 1, 0, "C");
-  $pdf -> Cell(25, 5, "Тип", 1, 0, "C");
-  $pdf -> Cell(30, 5, "Диаметр, км.", 1, 0, "C");
-  $pdf -> Cell(30, 5, "Вид инопланетян", 1, 0, "C");
-  $pdf -> Cell(30, 5, "Количество, тыс.", 1, 1, "C");
+  $pdf -> Cell(25, 5, "Расстояние, млн. км.", 1, 0, "C");
+  $pdf -> Cell(20, 5, "Тип", 1, 0, "C");
+  $pdf -> Cell(25, 5, "Диаметр, км.", 1, 0, "C");
+  $pdf -> Cell(25, 5, "Вид инопланетян", 1, 0, "C");
+  $pdf -> Cell(25, 5, "Количество, тыс.", 1, 1, "C");
 
   $pdf -> SetFont("Arial", "", "5");
 
@@ -48,13 +48,13 @@
     }
 
     $pdf -> Cell(5, 5, $i, 1, 0, "C");
-    $pdf -> Cell(15, 5, $name_planet, 1, 0, "C");
-    $pdf -> Cell(15, 5, $galaxy, 1, 0, "C");
-    $pdf -> Cell(22, 5, $distance, 1, 0, "C");
+    $pdf -> Cell(25, 5, $name_planet, 1, 0, "C");
+    $pdf -> Cell(25, 5, $galaxy, 1, 0, "C");
+    $pdf -> Cell(25, 5, $distance, 1, 0, "C");
     $pdf -> Cell(20, 5, $type, 1, 0, "C");
     $pdf -> Cell(25, 5, $diam, 1, 0, "C");
-    $pdf -> Cell(20, 5, $name_alien, 1, 0, "C");
-    $pdf -> Cell(18, 5, $count, 1, 1, "C");
+    $pdf -> Cell(25, 5, $name_alien, 1, 0, "C");
+    $pdf -> Cell(25, 5, $count, 1, 1, "C");
 }
 
 $pdf -> Output("katasonov_12.pdf", "D");
