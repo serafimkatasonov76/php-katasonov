@@ -54,7 +54,7 @@
       echo "<td>" . $row["distance"] . "</td>";
       echo "<td>" . $row["type"] . "</td>";
       echo "<td>" . $row["diam"] . "</td>";
-      echo "<td><a href='edit_olanet.php?id=" . $row["id"]
+      echo "<td><a href='edit_planet.php?id=" . $row["id"]
       . "'>Редактировать</a></td>";
       if($_SESSION["rule"] == 2) echo "<td><a href='delete_planet.php?id=" . $row["id"]
       . "'>Удалить</a></td>";

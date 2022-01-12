@@ -1,7 +1,7 @@
 <?php header('Content-Type: text/html; charset=windows-1251'); ?>
 
 <html>
-<head
+<head>
 <title> Редактирование данных </title>
 </head>
 <body>

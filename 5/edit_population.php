@@ -6,7 +6,7 @@ if(!$_SESSION["rule"]) header("Location: .");
 ?>
 
 <html>
-<head
+<head>
 <title> Редактирование данных </title>
 </head>
 <body>
