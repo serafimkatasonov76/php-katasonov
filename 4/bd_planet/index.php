@@ -86,9 +86,9 @@ print("<P>Всего записей: $num_rows </p>");
 ?>
 <a href="new_population.php"> Добавить запись </a><br><br>
 
-<br><a href='..'>Назад</a><br>
-
 <a href="gen_pdf.php"> Сохранить PDF </a><br>
 <a href="gen_xls.php"> Сохранить Excel </a><br>
+
+<br><a href='..'>Назад</a><br>
 
 </body> </html>
