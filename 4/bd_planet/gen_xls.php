@@ -25,14 +25,13 @@
   $sheet -> getStyle("A1:I1") -> getAlignment() -> setHorizontal("center");
 
   $sheet -> getColumnDimension("A") -> setWidth(5);
-  $sheet -> getColumnDimension("B") -> setWidth(15);
-  $sheet -> getColumnDimension("C") -> setWidth(15);
-  $sheet -> getColumnDimension("D") -> setWidth(18);
-  $sheet -> getColumnDimension("E") -> setWidth(30);
-  $sheet -> getColumnDimension("F") -> setWidth(15);
-  $sheet -> getColumnDimension("G") -> setWidth(15);
-  $sheet -> getColumnDimension("H") -> setWidth(50);
-  $sheet -> getColumnDimension("I") -> setWidth(18);
+  $sheet -> getColumnDimension("B") -> setWidth(20);
+  $sheet -> getColumnDimension("C") -> setWidth(20);
+  $sheet -> getColumnDimension("D") -> setWidth(25);
+  $sheet -> getColumnDimension("E") -> setWidth(20);
+  $sheet -> getColumnDimension("F") -> setWidth(20);
+  $sheet -> getColumnDimension("G") -> setWidth(30);
+  $sheet -> getColumnDimension("H") -> setWidth(25);
 
   $sheet -> SetCellValue("A2", "№");
   $sheet -> SetCellValue("B2", "Планета");
@@ -44,23 +43,23 @@
   $sheet -> SetCellValue("H2", "Количество, тыс.");
 
   $query = mysqli_query($conn, "SELECT * FROM population");
-  for($i = 1; $fetch_request = mysqli_fetch_array($query); $i++) {
-    $id_planet = $fetch_request["id_planet"];
-    $id_alien = $fetch_request["id_alien"];
-    $count = $fetch_request["count"];
+  for($i = 1; $fetch_population = mysqli_fetch_array($query); $i++) {
+    $id_planet = $fetch_population["id_planet"];
+    $id_alien = $fetch_population["id_alien"];
+    $count = $fetch_population["count"];
 
-    $query_fridge = mysqli_query($conn, "SELECT * FROM planet WHERE id = '" . $id_planet . "'");
-    if($fetch_fridge = mysqli_fetch_array($query_fridge)) {
-      $name_planet = iconv("windows-1251", "utf-8", $fetch_fridge["name"]);
-      $galaxy = iconv("windows-1251", "utf-8", $fetch_fridge["galaxy"]);
-      $distance = $fetch_fridge["distance"];
-      $type = iconv("windows-1251", "utf-8", $fetch_fridge["type"]);
-      $diam = $fetch_fridge["diam"];
+    $query_planet = mysqli_query($conn, "SELECT * FROM planet WHERE id = '" . $id_planet . "'");
+    if($fetch_planet = mysqli_fetch_array($query_fridge)) {
+      $name_planet = iconv("windows-1251", "utf-8", $fetch_planet["name"]);
+      $galaxy = iconv("windows-1251", "utf-8", $fetch_planet["galaxy"]);
+      $distance = $fetch_planet["distance"];
+      $type = iconv("windows-1251", "utf-8", $fetch_planet["type"]);
+      $diam = $fetch_planet["diam"];
     }
    
-    $query_service = mysqli_query($conn, "SELECT * FROM alien WHERE id = '" . $id_alien . "'");
-    if($fetch_service = mysqli_fetch_array($query_service)) {
-      $name_alien = $fetch_service["name"];
+    $query_alien = mysqli_query($conn, "SELECT * FROM alien WHERE id = '" . $id_alien . "'");
+    if($fetch_alien = mysqli_fetch_array($query_service)) {
+      $name_alien = $fetch_alien["name"];
     }
 
     $sheet -> SetCellValue("A".($i+2), $i);
