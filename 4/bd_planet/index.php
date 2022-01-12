@@ -60,6 +60,32 @@ print("<P>Всего записей: $num_rows </p>");
 ?>
 <a href="new_alien.php"> Добавить запись </a><br><br>
 
+<h2>Зарегистрированное население :</h2>
+<table border='1''>
+<tr>
+ <th> id </th>
+ <th> id Планеты </th> <th> id Вида инопланетян </th> <th> Количество, тыс. </th>
+ <th> Редактировать </th> <th> Уничтожить </th> </tr>
+<?php
+$result=mysqli_query($conn, "SELECT * FROM population"); // запрос на выборку сведений о пользователях
+while ($row=mysqli_fetch_array($result)){// для каждой строки из запроса
+ echo "<tr>";
+ echo "<td>" . $row["id"] . "</td>";
+ echo "<td>" . $row["id_planet"] . "</td>";
+ echo "<td>" . $row["id_alien"] . "</td>";
+ echo "<td>" . $row["count"] . "</td>";
+ echo "<td><a href='edit_population.php?id=" . $row["id"]
+. "'>Редактировать</a></td>"; // запуск скрипта для редактирования
+ echo "<td><a href='delete_population.php?id=" . $row["id"]
+. "'>Удалить</a></td>"; // запуск скрипта для удаления записи
+ echo "</tr>";
+}
+echo "</table>";
+$num_rows = mysqli_num_rows($result); // число записей в таблице БД
+print("<P>Всего записей: $num_rows </p>");
+?>
+<a href="new_population.php"> Добавить запись </a><br><br>
+
 <br><a href='..'>Назад</a><br>
 
 </body> </html>
