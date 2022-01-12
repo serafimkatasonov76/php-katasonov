@@ -36,7 +36,7 @@ print("<P>Всего записей: $num_rows </p>");
 <a href="new_planet.php"> Добавить запись </a><br><br>
 
 <h2>Виды инопланетян:</h2>
-<table border="1">
+<table border='1' style='table-layout:fixed; max-width:200px'>
 <tr>
  <th> id </th>
  <th> Название </th> <th> Описание </th>
@@ -47,7 +47,7 @@ while ($row=mysqli_fetch_array($result)){// для каждой строки из запроса
  echo "<tr>";
  echo "<td>" . $row["id"] . "</td>";
  echo "<td>" . $row["name"] . "</td>";
- echo "<td style='max-width:30px'>" . $row["info"] . "</td>";
+ echo "<td>" . $row["info"] . "</td>";
  echo "<td><a href='edit_alien.php?id=" . $row["id"]
 . "'>Редактировать</a></td>"; // запуск скрипта для редактирования
  echo "<td><a href='delete_alien.php?id=" . $row["id"]
