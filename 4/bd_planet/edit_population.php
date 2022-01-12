@@ -15,7 +15,7 @@
  $count=$st["count"];
  }
 
-print "<form action='save_edit_request.php' metod='get'>";
+print "<form action='save_edit_population.php' metod='get'>";
 print "id Планеты: <select name='id_planet'>";
 $result=mysqli_query($conn, "SELECT * FROM planet");
 echo "<option value='".$id_planet."' selected hidden>".$id_planet."</option>";
