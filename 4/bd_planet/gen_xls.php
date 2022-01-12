@@ -12,7 +12,7 @@
   use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
   $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","b844245c408b92","a1683317", "heroku_1f01e7efa26acd8") or die ("Невозможно подключиться к серверу");
-  mysqli_query($conn, "SET NAMES cp1251");
+  mysqli_query($conn, "SET NAMES utf8");
 
   $spreadsheet = new Spreadsheet();
   
@@ -49,16 +49,16 @@
     $count = $fetch_population["count"];
 
     $query_planet = mysqli_query($conn, "SELECT * FROM planet WHERE id = '" . $id_planet . "'");
-    if($fetch_planet = mysqli_fetch_array($query_fridge)) {
-      $name_planet = iconv("windows-1251", "utf-8", $fetch_planet["name"]);
-      $galaxy = iconv("windows-1251", "utf-8", $fetch_planet["galaxy"]);
+    if($fetch_planet = mysqli_fetch_array($query_planet)) {
+      $name_planet = $fetch_planet["name"];
+      $galaxy = $fetch_planet["galaxy"];
       $distance = $fetch_planet["distance"];
-      $type = iconv("windows-1251", "utf-8", $fetch_planet["type"]);
+      $type = $fetch_planet["type"];
       $diam = $fetch_planet["diam"];
     }
    
     $query_alien = mysqli_query($conn, "SELECT * FROM alien WHERE id = '" . $id_alien . "'");
-    if($fetch_alien = mysqli_fetch_array($query_service)) {
+    if($fetch_alien = mysqli_fetch_array($query_alien)) {
       $name_alien = $fetch_alien["name"];
     }
 
