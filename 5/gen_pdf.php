@@ -1,6 +1,9 @@
 <?php
 session_start();
-if($_SESSION["rule"]) {
+if(!$_SESSION["rule"]) header("Location: .");
+?>
+
+<?php
   $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","b844245c408b92","a1683317", "heroku_1f01e7efa26acd8") or die ("Невозможно подключиться к серверу");
   mysqli_query($conn, "SET NAMES cp1251");
 
@@ -57,8 +60,7 @@ if($_SESSION["rule"]) {
     $pdf -> Cell(25, 5, $diam, 1, 0, "C");
     $pdf -> Cell(25, 5, $name_alien, 1, 0, "C");
     $pdf -> Cell(25, 5, $count, 1, 1, "C");
-}
+  }
 
-$pdf -> Output("katasonov_12.pdf", "D");
-}
+  $pdf -> Output("katasonov_12.pdf", "D");
 ?>

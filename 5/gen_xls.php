@@ -1,6 +1,7 @@
 <?php
-session_start();
-if($_SESSION["rule"]) {
+  session_start();
+  if(!$_SESSION["rule"]) header("Location: .");
+
   header("Expires: Mon, 1 Apr 1974 05:00:00 GMT");
   header("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
   header("Cache-Control: no-cache, must-revalidate");
@@ -78,5 +79,4 @@ if($_SESSION["rule"]) {
   $writer -> save("php://output");
 
   exit();
-}
 ?>
