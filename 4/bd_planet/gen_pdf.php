@@ -1,5 +1,5 @@
 <?php
-  $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","b374ee7921ac55","547aa47c", "heroku_1ad19f5ab79e862") or die ("Невозможно подключиться к серверу");
+  $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","b844245c408b92","a1683317", "heroku_1f01e7efa26acd8") or die ("Невозможно подключиться к серверу");
   mysqli_query($conn, "SET NAMES cp1251");
 
   define('FPDF_FONTPATH',"../../fpdf/font/");
@@ -7,59 +7,55 @@
   
   $pdf = new FPDF();
   $pdf -> AddPage();
+
+  $pdf -> AddFont("Arial", "", "arial.php");
+  $pdf -> SetFont("Arial", "", "18");
+
+  $pdf -> Cell(135, 10, "Зарегистрированное население", 1, 1, "C");
  
   $pdf -> AddFont("Arial", "", "arial.php");
   $pdf -> SetFont("Arial", "", "6");
 
   $pdf -> Cell(5, 5, "№", 1, 0, "C");
-  $pdf -> Cell(9, 5, "Марка", 1, 0, "C");
-  $pdf -> Cell(10, 5, "Модель", 1, 0, "C");
-  $pdf -> Cell(22, 5, "Тип разморозки", 1, 0, "C");
-  $pdf -> Cell(20, 5, "Срок гарантии, г.", 1, 0, "C");
-  $pdf -> Cell(25, 5, "Название серв. центра", 1, 0, "C");
-  $pdf -> Cell(20, 5, "Адрес", 1, 0, "C");
-  $pdf -> Cell(18, 5, "Дата начала", 1, 0, "C");
-  $pdf -> Cell(18, 5, "Дата окончания", 1, 0, "C");
-  $pdf -> Cell(30, 5, "ФИО", 1, 0, "C");
-  $pdf -> Cell(18, 5, "Стоимость, руб.", 1, 1, "C");
+  $pdf -> Cell(15, 5, "Планета", 1, 0, "C");
+  $pdf -> Cell(15, 5, "Созвездие", 1, 0, "C");
+  $pdf -> Cell(20, 5, "Расстояние, млн. км.", 1, 0, "C");
+  $pdf -> Cell(15, 5, "Тип", 1, 0, "C");
+  $pdf -> Cell(20, 5, "Диаметр, км.", 1, 0, "C");
+  $pdf -> Cell(25, 5, "Вид инопланетян", 1, 0, "C");
+  $pdf -> Cell(20, 5, "Количество, тыс.", 1, 1, "C");
 
   $pdf -> SetFont("Arial", "", "5");
 
-  $query = mysqli_query($conn, "SELECT * FROM request");
+  $query = mysqli_query($conn, "SELECT * FROM population");
   for($i = 1; $fetch_request = mysqli_fetch_array($query); $i++) {
-    $date_in = $fetch_request["date_in"];
-    $date_out = $fetch_request["date_out"];
-    $id_fridge = $fetch_request["id_fridge"];
-    $id_service = $fetch_request["id_service"];
-    $fio = $fetch_request["fio"];
-    $price = $fetch_request["price"];
+    $id_planet = $fetch_request["id_planet"];
+    $id_alien = $fetch_request["id_alien"];
+    $count = $fetch_request["count"];
 
-    $query_fridge = mysqli_query($conn, "SELECT * FROM fridge WHERE id = '" . $id_fridge . "'");
+    $query_fridge = mysqli_query($conn, "SELECT * FROM planet WHERE id = '" . $id_planet . "'");
     if($fetch_fridge = mysqli_fetch_array($query_fridge)) {
-      $name_fridge = $fetch_fridge["name"];
-      $model = $fetch_fridge["model"];
+      $name_planet = $fetch_fridge["name"];
+      $galaxy = $fetch_fridge["galaxy"];
+      $distance = $fetch_fridge["distance"];
       $type = $fetch_fridge["type"];
-      $time = $fetch_fridge["time"];
+      $diam = $fetch_fridge["diam"];
     }
    
-    $query_service = mysqli_query($conn, "SELECT * FROM service WHERE id = '" . $id_service . "'");
+    $query_service = mysqli_query($conn, "SELECT * FROM alien WHERE id = '" . $id_alien . "'");
     if($fetch_service = mysqli_fetch_array($query_service)) {
-      $name_service = $fetch_service["name"];
-      $address = $fetch_service["address"];
+      $name_alien = $fetch_service["name"];
     }
 
     $pdf -> Cell(5, 5, $i, 1, 0, "C");
-    $pdf -> Cell(9, 5, $name_fridge, 1, 0, "C");
-    $pdf -> Cell(10, 5, $model, 1, 0, "C");
-    $pdf -> Cell(22, 5, $type, 1, 0, "C");
-    $pdf -> Cell(20, 5, $time, 1, 0, "C");
-    $pdf -> Cell(25, 5, $name_service, 1, 0, "C");
-    $pdf -> Cell(20, 5, $address, 1, 0, "C");
-    $pdf -> Cell(18, 5, $date_in, 1, 0, "C");
-    $pdf -> Cell(18, 5, $date_out, 1, 0, "C");
-    $pdf -> Cell(30, 5, $fio, 1, 0, "C");
-    $pdf -> Cell(18, 5, $price, 1, 1, "C");
+    $pdf -> Cell(15, 5, $name_planet, 1, 0, "C");
+    $pdf -> Cell(15, 5, $galaxy, 1, 0, "C");
+    $pdf -> Cell(22, 5, $distance, 1, 0, "C");
+    $pdf -> Cell(20, 5, $type, 1, 0, "C");
+    $pdf -> Cell(25, 5, $diam, 1, 0, "C");
+    $pdf -> Cell(20, 5, $name_alien, 1, 0, "C");
+    $pdf -> Cell(18, 5, $count, 1, 1, "C");
 }
 
-$pdf -> Output("gazin_6.pdf", "D");
+$pdf -> Output("katasonov_12.pdf", "D");
 ?>
