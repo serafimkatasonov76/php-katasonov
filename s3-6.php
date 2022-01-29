@@ -17,15 +17,7 @@
 
   
   if(isset($_POST["submit12"])) {
-    $symbols = array_reverse(str_split($_POST["text12"]));
-    $before = mb_convert_case($_POST["before"], MB_CASE_LITTLE, "windows-1251");
-    $after = mb_convert_case($_POST["after"], MB_CASE_LITTLE, "windows-1251");
-
-    for($i = count($symbols) - 1; $i > 0; $i--) {
-      if(mb_convert_case($symbols[$i], MB_CASE_LITTLE, "windows-1251") == $after && mb_convert_case($symbols[$i - 1], MB_CASE_LITTLE, "windows-1251") == $before) continue;
-      echo $symbols[$i];
-    }
-    echo $symbols[0];
+    
   }
   
   echo "<form method='post' action='".$_SERVER["PHP_SELF"]."'>";
@@ -36,27 +28,7 @@
   echo "<input type='submit' name='submit15' value='¬˚ÔÓÎÌËÚ¸'></form>";
 
   if(isset($_POST["submit15"])) {
-   $chet = array();
-   $nechet = array();
-   $chars = str_split($_POST["text15"]);
-   for($i=0; $i<count($chars); $i++)
-   {
-	   if(($i+1)%2==0)
-		   array_push($chet, $chars[$i]);
-	   else
-		   array_push($nechet, $chars[$i]);
-   }
-   $finalstr = "";
-   for($i=0; $i<count($chet); $i++)
-   {
-	   $finalstr.=$chet[$i];
-   }
-   for($i=count($nechet)-1; $i>=0; $i--)
-   {
-	   $finalstr.=$nechet[$i];
-   }
    
-   echo "»ÚÓ„: ".$finalstr." chet:".count($chet)." nechet:".count($nechet);
   }
   echo "<br><br><br>";
   
@@ -69,26 +41,19 @@
   echo "“ÂÍÒÚ:<br><textarea type='text' name='text18' cols='30' rows='5'></textarea><br>";
   echo "<input type='submit' name='submit18' value='¬˚ÔÓÎÌËÚ¸'></form>";
   if(isset($_POST["submit18"])) {
-   $zaglav = 0;
-   $stroch = 0;
-   $chars = str_split($_POST["text18"]);
-   for($i=0; $i<count($chars); $i++)
-   {
-	   if(ctype_upper($chars[$i]))
-		   $zaglav++;
-	   else
-		   $stroch++;
-   }
-   $finalstr = "";
-   if($zaglav<$stroch)
-	   $finalstr = mb_strtolower($_POST["text18"]);
-   else if($zaglav>$stroch)
-	   $finalstr = mb_strtoupper($_POST["text18"]);
-   else 
-	   $finalstr = $_POST["text18"];
+  $rus_upper = str_split("…÷” ≈Õ√ÿŸ«’⁄‘€¬¿œ–ŒÀƒ∆›ﬂ◊—Ã»“‹¡ﬁ®");
+  $rus_lower = str_split("ÈˆÛÍÂÌ„¯˘Áı˙Ù˚‚‡ÔÓÎ‰Ê˝ˇ˜ÒÏËÚ¸·˛∏");
+  $eng_upper = str_split("qwertyuiopasdfghjklzxcvbnm");
+  $eng_lower = str_split("QWERTYUIOPASDFGHJKLZXCVBNM");
 
-   
-   echo "»ÚÓ„: ".$finalstr." stroch:".$stroch." zaglav:".$zaglav;
+  $lower = $upper = 0;
+  foreach(str_split($_POST["text"]) as $char)
+    if(in_array($char, $rus_lower) || in_array($char, $eng_upper)) $lower++;
+    elseif(in_array($char, $rus_upper) || in_array($char, $eng_lower)) $upper++;
+  
+  if($lower > $upper) echo mb_convert_case($_POST["text"], MB_CASE_LOWER, "windows-1251");
+  elseif($upper > $lower) echo mb_convert_case($_POST["text"], MB_CASE_UPPER, "windows-1251");
+  else echo $_POST["text"];
   }
 
   
