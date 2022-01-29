@@ -38,8 +38,8 @@
 
   if(isset($_POST["submit15"])) {
    $chars = str_split($_POST["text15"]);
-   for($i = 0; $i < count($chars); $i++) if(($i + 1) % 2 == 0) echo chars[$i];
-   for($i = count($chars) - 1; $i >= 0; $i++) if(($i + 1) % 2 == 1) echo chars[$i];
+   for($i = 0; $i < count($chars); $i++) if(($i + 1) % 2 == 0) echo $chars[$i];
+   for($i = count($chars) - 1; $i >= 0; $i++) if(($i + 1) % 2 == 1) echo $chars[$i];
   }
   echo "<br><br><br>";
   
