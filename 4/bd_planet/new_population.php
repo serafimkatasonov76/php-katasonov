@@ -11,14 +11,6 @@
 <form action="save_new_population.php" metod="get">
 
 <?php
-print "<br>id Языка программирования: <select name='id_pl'>";
-$result=mysqli_query($conn, "SELECT * FROM pl");
-echo "<option value='' selected hidden>...</option>";
-foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
-echo "</select>";
-?>
-
-<?php
 print "<br>id Планеты: <select name='id_planet'>";
 $result=mysqli_query($conn, "SELECT * FROM planet");
 echo "<option value='' selected hidden>...</option>";
@@ -29,14 +21,6 @@ echo "</select>";
 <?php
 print "<br>id Вида инопланетян: <select name='id_alien'>";
 $result=mysqli_query($conn, "SELECT * FROM alien");
-echo "<option value='' selected hidden>...</option>";
-foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
-echo "</select>";
-?>
-
-<?php
-print "<br>id Разработчика: <select name='id_developer'>";
-$result=mysqli_query($conn, "SELECT * FROM developer");
 echo "<option value='' selected hidden>...</option>";
 foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
 echo "</select>";
