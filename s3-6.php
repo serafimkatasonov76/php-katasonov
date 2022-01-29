@@ -17,7 +17,15 @@
 
   
   if(isset($_POST["submit12"])) {
-    
+    $symbols = str_split($_POST["text12"]);
+    $before = strtolower($_POST["before"]);
+    $after = strtolower($_POST["after"]);
+
+    $symbols = array_reverse($symbols);
+    echo $symbols[count($symbols) - 1];
+    for($i = count($symbols) - 1; $i > 0; $i--) {
+      if(strtolower($symbols[$i - 1]) == $after && strtolower($symbols[$i]) == $before) continue;
+      echo $symbols[$i - 1];
   }
   
   echo "<form method='post' action='".$_SERVER["PHP_SELF"]."'>";
