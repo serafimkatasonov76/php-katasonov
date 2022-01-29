@@ -56,13 +56,13 @@
     $eng_lower = str_split("QWERTYUIOPASDFGHJKLZXCVBNM");
 
     $lower = $upper = 0;
-    foreach(str_split($_POST["text"]) as $char)
+    foreach(str_split($_POST["text18"]) as $char)
       if(in_array($char, $rus_lower) || in_array($char, $eng_upper)) $lower++;
       elseif(in_array($char, $rus_upper) || in_array($char, $eng_lower)) $upper++;
   
-    if($lower > $upper) echo mb_convert_case($_POST["text"], MB_CASE_LOWER, "windows-1251");
-    elseif($upper > $lower) echo mb_convert_case($_POST["text"], MB_CASE_UPPER, "windows-1251");
-    else echo $_POST["text"];
+    if($lower > $upper) echo mb_convert_case($_POST["text18"], MB_CASE_LOWER, "windows-1251");
+    elseif($upper > $lower) echo mb_convert_case($_POST["text18"], MB_CASE_UPPER, "windows-1251");
+    else echo $_POST["text18"];
   }
 
   
