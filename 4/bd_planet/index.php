@@ -65,6 +65,7 @@ print("<P>Всего записей: $num_rows </p>");
 <tr>
  <th> id </th>
  <th> id Планеты </th> <th> id Вида инопланетян </th> <th> Количество, тыс. </th>
+ <th> Дата регистрации </th> <th> Время регистрации </th>
  <th> Редактировать </th> <th> Уничтожить </th> </tr>
 <?php
 $result=mysqli_query($conn, "SELECT * FROM population"); // запрос на выборку сведений о пользователях
@@ -74,6 +75,8 @@ while ($row=mysqli_fetch_array($result)){// для каждой строки из запроса
  echo "<td>" . $row["id_planet"] . "</td>";
  echo "<td>" . $row["id_alien"] . "</td>";
  echo "<td>" . $row["count"] . "</td>";
+ echo "<td>" . echo "<td>" . date("d.m.Y", strtotime($row["date"])) . "</td>";
+ echo "<td>" . echo "<td>" . date("H:i:s", strtotime($row["date"])) . "</td>";
  echo "<td><a href='edit_population.php?id=" . $row["id"]
 . "'>Редактировать</a></td>"; // запуск скрипта для редактирования
  echo "<td><a href='delete_population.php?id=" . $row["id"]
