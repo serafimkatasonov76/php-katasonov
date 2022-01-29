@@ -14,22 +14,23 @@ if(!$_SESSION["rule"]) header("Location: .");
 ?>
 <H2>Добавление новой записи:</H2>
 <form action="save_new_population.php" metod="get">
-<br>id Планеты: <select name="id_planet">
+
 <?php
-  $result=mysqli_query($conn, "SELECT * FROM planet");
-  echo "<option value='' selected disabled hidden>...</option>";
-  foreach($result as $row)
-    echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
-  echo "</select>";
+print "<br>id Планеты: <select name='id_planet'>";
+$result=mysqli_query($conn, "SELECT * FROM planet");
+echo "<option value='' selected hidden>...</option>";
+foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+echo "</select>";
 ?>
-<br>id Вида инопланетян: <select name="id_alien">
+
 <?php
-  $result=mysqli_query($conn, "SELECT * FROM alien");
-  echo "<option value='' selected disabled hidden>...</option>";
-  foreach($result as $row)
-    echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
-  echo "</select>";
+print "<br>id Вида инопланетян: <select name='id_alien'>";
+$result=mysqli_query($conn, "SELECT * FROM alien");
+echo "<option value='' selected hidden>...</option>";
+foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+echo "</select>";
 ?>
+
 <br>Количество, тыс.: <input name="count" size="20" type="text">
 <p><input name="add" type="submit" value="Добавить">
 <input name="b2" type="reset" value="Очистить"></p>

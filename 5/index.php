@@ -92,6 +92,7 @@
     echo "<table border='1'>";
     echo "<tr><th> id </th>";
     echo "<th> id Планеты </th> <th> id Вида инопланетян </th> <th> Количество, тыс. </th>";
+    echo "<th> Дата регистрации </th> <th> Время регистрации </th>";
     echo "<th> Редактировать </th>";
     if($_SESSION["rule"] == 2) echo "<th> Уничтожить </th> </tr>";
     $result=mysqli_query($conn, "SELECT * FROM population");
@@ -101,6 +102,8 @@
       echo "<td>" . $row["id_planet"] . "</td>";
       echo "<td>" . $row["id_alien"] . "</td>";
       echo "<td>" . $row["count"] . "</td>";
+      echo "<td>" . date("d.m.Y", strtotime($row["date"]) + 60 * 60 * 5) . "</td>";
+      echo "<td>" . date("H:i:s", strtotime($row["date"]) + 60 * 60 * 5) . "</td>";
       echo "<td><a href='edit_population.php?id=" . $row["id"]
       . "'>Редактировать</a></td>";
       if($_SESSION["rule"] == 2) echo "<td><a href='delete_population.php?id=" . $row["id"]
